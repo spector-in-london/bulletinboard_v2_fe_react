@@ -16,6 +16,12 @@ const Header = styled.header`
   text-align: right;
 `;
 
+const SiteTitle = styled.div`
+`;
+
+const Navigation = styled.nav`
+`;
+
 const Main = styled.main`
   background-color: #fafafa;
 `;
@@ -28,12 +34,11 @@ class App extends Component {
     return (
       <ContentWrapper>
         <Header>
-          <div>bulletin board</div>
-          <nav>
+          <SiteTitle>bulletin board</SiteTitle>
+          <Navigation>
             <a href='/'>read</a>
             <a href='/'>write</a>
-          </nav>
-          <div />
+          </Navigation>
         </Header>
         <Main>
           <SortButton>sort: newest first</SortButton>
