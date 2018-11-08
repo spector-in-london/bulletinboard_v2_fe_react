@@ -1,33 +1,19 @@
 import React, { Component } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
+import ContentWrapper from "./components/ContentWrapper";
+import Header from "./components/Header";
+import LoadMoreButton from "./components/LoadMoreButton";
+import Main from "./components/Main";
+import Navigation from "./components/Navigation";
+import SiteTitle from "./components/SiteTitle";
+import SortButton from "./components/SortButton";
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Oxygen', 'Helvetica Neue', sans-serif;
   }
 `;
-
-const ContentWrapper = styled.div`
-  width: 80%;
-  margin: 0 auto;
-`;
-
-const Header = styled.header`
-  text-align: right;
-`;
-
-const SiteTitle = styled.div`
-`;
-
-const Navigation = styled.nav`
-`;
-
-const Main = styled.main`
-  background-color: #fafafa;
-`;
-
-const SortButton = styled.button``;
-const LoadMoreButton = styled.button``;
 
 class App extends Component {
   render() {
