@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Oxygen', 'Helvetica Neue', sans-serif;
+  }
+`;
 
 const ContentWrapper = styled.div`
   width: 80%;
@@ -42,6 +48,7 @@ class App extends Component {
           </div>
           <LoadMoreButton>load more...</LoadMoreButton>
         </Main>
+        <GlobalStyle />
       </ContentWrapper>
     );
   }
