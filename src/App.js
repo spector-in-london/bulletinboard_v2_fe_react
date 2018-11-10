@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
+import Comment from "./components/Comment";
 import ContentWrapper from "./components/ContentWrapper";
 import Header from "./components/Header";
 import Link from "./components/Link";
@@ -30,13 +31,7 @@ class App extends Component {
         <Main>
           <SortButton>sort: newest first</SortButton>
           <div>
-            <div>
-              <div>
-                <div>Header Left</div>
-                <div>Date</div>
-              </div>
-              <div>Body</div>
-            </div>
+            <Comment />
           </div>
           <LoadMoreButton>load more...</LoadMoreButton>
         </Main>
