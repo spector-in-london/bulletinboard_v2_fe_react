@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import ContentWrapper from "./components/ContentWrapper";
 import Header from "./components/Header";
+import Link from "./components/Link";
 import LoadMoreButton from "./components/LoadMoreButton";
 import Main from "./components/Main";
 import Navigation from "./components/Navigation";
@@ -22,8 +23,8 @@ class App extends Component {
         <Header>
           <SiteTitle>bulletin board</SiteTitle>
           <Navigation>
-            <a href='/'>read</a>
-            <a href='/'>write</a>
+            <Link href='/'>read</Link>
+            <Link href='/'>write</Link>
           </Navigation>
         </Header>
         <Main>
