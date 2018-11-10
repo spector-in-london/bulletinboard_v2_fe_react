@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import Comment from "./components/Comment";
 import ContentWrapper from "./components/ContentWrapper";
+import Decoration from "./components/Decoration";
 import Header from "./components/Header";
 import Link from "./components/Link";
 import LoadMoreButton from "./components/LoadMoreButton";
@@ -27,10 +28,13 @@ class App extends Component {
             <Link href='/'>read</Link>
             <Link href='/'>write</Link>
           </Navigation>
+          <Decoration />
         </Header>
         <Main>
           <SortButton>sort: newest first</SortButton>
           <div>
+            <Comment />
+            <Comment />
             <Comment />
           </div>
           <LoadMoreButton>load more...</LoadMoreButton>
