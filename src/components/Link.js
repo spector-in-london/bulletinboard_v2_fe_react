@@ -7,6 +7,10 @@ const Link = styled.a`
   &:hover {
     color: #ffbc05;
   }
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
 `;
 
 export default Link;
