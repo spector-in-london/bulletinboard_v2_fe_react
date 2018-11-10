@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
+import Background from "./components/Background";
 import Comment from "./components/Comment";
 import ContentWrapper from "./components/ContentWrapper";
 import Decoration from "./components/Decoration";
@@ -21,26 +22,29 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
   render() {
     return (
-      <ContentWrapper>
-        <Header>
-          <SiteTitle>bulletin board</SiteTitle>
-          <Navigation>
-            <Link href='/'>read</Link>
-            <Link href='/'>write</Link>
-          </Navigation>
-          <Decoration />
-        </Header>
-        <Main>
-          <SortButton>sort: newest first</SortButton>
-          <div>
-            <Comment />
-            <Comment />
-            <Comment />
-          </div>
-          <LoadMoreButton>load more...</LoadMoreButton>
-        </Main>
-        <GlobalStyle />
-      </ContentWrapper>
+      <React.Fragment>
+        <ContentWrapper>
+          <Header>
+            <SiteTitle>bulletin board</SiteTitle>
+            <Navigation>
+              <Link href='/'>read</Link>
+              <Link href='/'>write</Link>
+            </Navigation>
+            <Decoration />
+          </Header>
+          <Main>
+            <SortButton>sort: newest first</SortButton>
+            <div>
+              <Comment />
+              <Comment />
+              <Comment />
+            </div>
+            <LoadMoreButton>load more...</LoadMoreButton>
+          </Main>
+          <GlobalStyle />
+        </ContentWrapper>
+        <Background />
+      </React.Fragment>
     );
   }
 }
