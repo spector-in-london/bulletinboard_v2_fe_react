@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const CommentWrapper = styled.div`
   margin-bottom: 1em;
@@ -10,7 +10,7 @@ const CommentHeader = styled.div`
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-`
+`;
 
 const Comment = () => {
   return (
@@ -20,8 +20,8 @@ const Comment = () => {
         <div>Date</div>
       </CommentHeader>
       <div>Body</div>
-  </CommentWrapper>
+    </CommentWrapper>
   );
-}
+};
 
 export default Comment;
