@@ -6,6 +6,11 @@ const Button = styled.button`
   border: none;
   padding: 0.5em;
   background-color: rgba(255, 188, 5, 0.265);
+
+  :focus {
+    outline: none;
+    background-color: #ffbc05;
+  }
 `;
 
 export default Button;
