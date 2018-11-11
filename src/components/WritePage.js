@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
+import SubmitButton from '../components/SubmitButton';
+import InputField from '../components/InputField';
+import TextareaField from '../components/TextareaField';
+
 class ReadPage extends Component {
   render() {
     return (
       <>
-      <div>
-        WritePage
-      </div>
+      <InputField label='Name' autofocus />
+      <TextareaField label='Name' />
+      <SubmitButton type='submit'>Submit</SubmitButton>
       </>
     );
   }
