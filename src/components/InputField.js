@@ -7,6 +7,10 @@ const Input = styled.input`
   border: unset;
   border-bottom: 1px solid black;
   padding: 0.5em;
+
+  :focus {
+    outline: 2px solid #ffbc05;
+  }
 `;
 
 const InputField = (props) => {
