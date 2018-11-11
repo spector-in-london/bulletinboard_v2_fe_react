@@ -8,6 +8,10 @@ const Textarea = styled.textarea`
   border-bottom: 1px solid black;
   padding: 0.5em;
   resize: none;
+
+  :focus {
+    outline: 2px solid #ffbc05;
+  }
 `;
 
 const TextareaField = (props) => {
