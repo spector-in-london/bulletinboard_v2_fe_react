@@ -26,8 +26,8 @@ class App extends Component {
           <Header>
             <SiteTitle>bulletin board</SiteTitle>
             <Navigation>
-              <Link href='/'>read</Link>
-              <Link href='/'>write</Link>
+              <Link to='/read'>read</Link>
+              <Link to='/write'>write</Link>
             </Navigation>
             <Decoration />
           </Header>

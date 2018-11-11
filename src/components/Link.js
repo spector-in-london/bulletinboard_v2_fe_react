@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const Link = styled.a`
+import { Link as RouterLink } from 'react-router-dom';
+
+const Link = styled(RouterLink)`
   color: unset;
   text-decoration: none;
 
