@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 import MainLayout from './components/MainLayout';
-import ReadPage from './components/ReadPage';
+import ReadPageContainer from './containers/ReadPageContainer';
 
 class App extends Component {
   render() {
     return (
       <MainLayout>
-        <ReadPage />
+        <ReadPageContainer />
       </MainLayout>
     );
   }
