@@ -12,14 +12,16 @@ const CommentHeader = styled.div`
   font-weight: bold;
 `;
 
-const Comment = () => {
+const Comment = (props) => {
+  const { title, body, date } = props;
+
   return (
     <CommentWrapper>
       <CommentHeader>
-        <div>Header Left</div>
-        <div>Date</div>
+        <div>{title}</div>
+        <div>{date}</div>
       </CommentHeader>
-      <div>Body</div>
+      <div>{body}</div>
     </CommentWrapper>
   );
 };
