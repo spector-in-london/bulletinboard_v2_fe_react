@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 
-import Comment from './Comment';
+import Comments from './Comments';
 import LoadMoreButton from './LoadMoreButton';
 import SortButton from './SortButton';
 
 class ReadPage extends Component {
   render() {
+    const { comments } = this.props;
+
     return (
       <>
         <SortButton>sort: newest first</SortButton>
-        <div>
-          <Comment />
-          <Comment />
-          <Comment />
-        </div>
+        <Comments comments={comments} />
         <LoadMoreButton>load more...</LoadMoreButton>
       </>
     );
