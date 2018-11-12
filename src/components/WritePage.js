@@ -8,8 +8,8 @@ class ReadPage extends Component {
   render() {
     return (
       <>
-      <InputField label='Name' autofocus />
-      <TextareaField label='Name' />
+      <InputField label='Your Name' autofocus />
+      <TextareaField label='Your Comment' />
       <SubmitButton type='submit'>Submit</SubmitButton>
       </>
     );
