@@ -15,11 +15,17 @@ const Textarea = styled.textarea`
 `;
 
 const TextareaField = (props) => {
-  const { label, autofocus } = props;
+  const { label, autofocus, onChange, name } = props;
 
   return (
     <FormGroup label={label}>
-      <Textarea rows='6' placeholder='Max 255 characters' maxLength='255' autoFocus={autofocus} />
+      <Textarea
+        autoFocus={autofocus}
+        maxLength='255'
+        name={name}
+        onChange={onChange}
+        placeholder='Max 255 characters'
+        rows='6' />
     </FormGroup>
   );
 };
