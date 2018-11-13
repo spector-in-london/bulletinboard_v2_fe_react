@@ -4,7 +4,7 @@ import SubmitButton from '../components/SubmitButton';
 import InputField from '../components/InputField';
 import TextareaField from '../components/TextareaField';
 
-class ReadPage extends Component {
+class WritePage extends Component {
   render() {
     const { onChange, onSubmit } = this.props;
 
@@ -18,4 +18,4 @@ class ReadPage extends Component {
   }
 }
 
-export default ReadPage;
+export default WritePage;
