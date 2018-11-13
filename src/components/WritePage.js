@@ -10,9 +10,19 @@ class WritePage extends Component {
 
     return (
       <form onSubmit={onSubmit}>
-        <InputField name='title' onChange={onChange} label='Your Name' autofocus />
-        <TextareaField name='body' onChange={onChange} label='Your Comment' />
-        <SubmitButton type='submit'>Submit</SubmitButton>
+        <InputField
+          autofocus
+          label='Your Name'
+          name='title'
+          onChange={onChange} />
+        <TextareaField
+          label='Your Comment'
+          name='body'
+          onChange={onChange} />
+        <SubmitButton
+          type='submit'>
+          Submit
+        </SubmitButton>
       </form>
     );
   }
