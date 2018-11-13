@@ -14,11 +14,17 @@ const Input = styled.input`
 `;
 
 const InputField = (props) => {
-  const { label, autofocus } = props;
+  const { label, autofocus, onChange, name } = props;
 
   return (
     <FormGroup label={label}>
-      <Input type='text' placeholder='Max 50 characters' maxLength='50' autoFocus={autofocus} />
+      <Input
+        autoFocus={autofocus}
+        maxLength='50'
+        name={name}
+        onChange={onChange}
+        placeholder='Max 50 characters'
+        type='text' />
     </FormGroup>
   );
 };
