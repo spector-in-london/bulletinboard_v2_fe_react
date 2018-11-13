@@ -6,12 +6,14 @@ import TextareaField from '../components/TextareaField';
 
 class ReadPage extends Component {
   render() {
+    const { onChange, onSubmit } = this.props;
+
     return (
-      <>
-      <InputField label='Your Name' autofocus />
-      <TextareaField label='Your Comment' />
-      <SubmitButton type='submit'>Submit</SubmitButton>
-      </>
+      <form onSubmit={onSubmit}>
+        <InputField name='title' onChange={onChange} label='Your Name' autofocus />
+        <TextareaField name='body' onChange={onChange} label='Your Comment' />
+        <SubmitButton type='submit'>Submit</SubmitButton>
+      </form>
     );
   }
 }
