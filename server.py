@@ -8,7 +8,13 @@ def hello():
 @app.route("/api/comments/", methods=["GET", "POST"])
 def comments():
     if request.method == "POST":
-        return ""
+        print(request.get_json())
+        response = {
+            "status": "success",
+            "data": None,
+            "message": None,
+        }
+        return jsonify(response), 200
     else:
         comments = [
             { "id": 1, "title": "title", "body": "body", "date": "11-11-2018" },
