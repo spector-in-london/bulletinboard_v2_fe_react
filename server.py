@@ -10,10 +10,16 @@ def comments():
     if request.method == "POST":
         return ""
     else:
-        response = [
+        comments = [
             { "id": 1, "title": "title", "body": "body", "date": "11-11-2018" },
             { "id": 2, "title": "title", "body": "body", "date": "11-11-2018" },
             { "id": 3, "title": "title", "body": "body", "date": "11-11-2018" },
         ]
-        return jsonify(response)
 
+        response = {
+            "status": "success",
+            "data": { "comments": comments },
+            "message": None,
+        }
+
+        return jsonify(response), 200
