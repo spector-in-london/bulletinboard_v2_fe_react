@@ -14,7 +14,12 @@ class ReadPageContainer extends Component {
   fetchComments() {
     fetch('/api/comments/')
       .then(res => res.json())
-      .then(comments => this.setState({ comments }))
+      .then(res => {
+        if (res.status === 'success' && res.data) {
+          this.setState({ comments: res.data.comments });
+        }
+      })
+      // TODO handle errors
       .catch(console.error); // eslint-disable-line no-console
   }
 
