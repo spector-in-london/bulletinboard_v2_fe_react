@@ -6,6 +6,7 @@ class ReadPageContainer extends Component {
   state = {
     comments: [],
     isFetching: false,
+    hasError: false,
   }
 
   componentDidMount() {
@@ -13,7 +14,13 @@ class ReadPageContainer extends Component {
   }
 
   handleError = (error) => {
-    console.error(error); // eslint-disable-line no-console
+    this.setState(
+      {
+        hasError: true,
+        isFetching: false,
+      },
+      console.error(error) // eslint-disable-line no-console
+    );
   }
 
   fetchComments() {
@@ -34,7 +41,9 @@ class ReadPageContainer extends Component {
 
   render() {
     return (
-      <ReadPage comments={this.state.comments}/>
+      <ReadPage
+        comments={this.state.comments}
+        hasError={this.state.hasError} />
     );
   }
 }
