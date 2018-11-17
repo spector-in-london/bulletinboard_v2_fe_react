@@ -10,6 +10,7 @@ class WritePageContainer extends Component {
       body: '',
     },
     isBusy: false,
+    hasError: false,
   }
 
   handleChange = (event) => {
@@ -30,7 +31,10 @@ class WritePageContainer extends Component {
 
   handleError = (error) => {
     this.setState(
-      { isBusy: false },
+      {
+        isBusy: false,
+        hasError: true,
+      },
       console.error(error) // eslint-disable-line no-console
     );
   }
@@ -55,10 +59,11 @@ class WritePageContainer extends Component {
   }
 
   render() {
-    const { isBusy } = this.state;
+    const { isBusy, hasError } = this.state;
 
     return (
       <WritePage
+        hasError={hasError}
         isBusy={isBusy}
         onChange={this.handleChange}
         onSubmit={this.handleSubmit} />
