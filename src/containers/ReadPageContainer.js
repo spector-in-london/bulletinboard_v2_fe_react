@@ -5,10 +5,11 @@ import ReadPage from '../components/ReadPage';
 class ReadPageContainer extends Component {
   state = {
     comments: [],
+    isFetching: false,
   }
 
   componentDidMount() {
-    this.fetchComments();
+    this.setState({ isFetching: true }, this.fetchComments());
   }
 
   fetchComments() {
@@ -16,7 +17,10 @@ class ReadPageContainer extends Component {
       .then(res => res.json())
       .then(res => {
         if (res.status === 'success' && res.data) {
-          this.setState({ comments: res.data.comments });
+          this.setState({
+            comments: res.data.comments,
+            isFetching: false,
+          });
         }
       })
       // TODO handle errors
