@@ -28,6 +28,13 @@ class WritePageContainer extends Component {
     this.setState({ isBusy: true }, this.postComment());
   }
 
+  handleError = (error) => {
+    this.setState(
+      { isBusy: false },
+      console.error(error) // eslint-disable-line no-console
+    );
+  }
+
   postComment() {
     const options = {
       method: 'post',
@@ -40,10 +47,11 @@ class WritePageContainer extends Component {
       .then(res => {
         if (res.status === 'success') {
           this.setState({ isBusy: false }, this.props.history.push('/read'));
+        } else {
+          this.handleError(res.message);
         }
       })
-      // TODO: handle errors
-      .catch(console.error); // eslint-disable-line no-console
+      .catch(this.handleError);
   }
 
   render() {
