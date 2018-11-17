@@ -12,6 +12,10 @@ class ReadPageContainer extends Component {
     this.setState({ isFetching: true }, this.fetchComments());
   }
 
+  handleError = (error) => {
+    console.error(error); // eslint-disable-line no-console
+  }
+
   fetchComments() {
     fetch('/api/comments/')
       .then(res => res.json())
@@ -21,10 +25,11 @@ class ReadPageContainer extends Component {
             comments: res.data.comments,
             isFetching: false,
           });
+        } else {
+          this.handleError(res.message);
         }
       })
-      // TODO handle errors
-      .catch(console.error); // eslint-disable-line no-console
+      .catch(this.handleError);
   }
 
   render() {
