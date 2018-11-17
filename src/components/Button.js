@@ -11,6 +11,11 @@ const Button = styled.button`
     outline: none;
     background-color: #ffbc05;
   }
+
+  :disabled {
+    cursor: not-allowed;
+    background-color: #eee;
+  }
 `;
 
 export default Button;
