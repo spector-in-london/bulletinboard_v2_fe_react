@@ -8,7 +8,8 @@ class WritePageContainer extends Component {
     comment: {
       title: '',
       body: '',
-    }
+    },
+    isBusy: false,
   }
 
   handleChange = (event) => {
@@ -24,7 +25,7 @@ class WritePageContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.postComment();
+    this.setState({ isBusy: true }, this.postComment());
   }
 
   postComment() {
@@ -38,7 +39,7 @@ class WritePageContainer extends Component {
       .then(res => res.json())
       .then(res => {
         if (res.status === 'success') {
-          this.props.history.push('/read');
+          this.setState({ isBusy: false }, this.props.history.push('/read'));
         }
       })
       // TODO: handle errors
