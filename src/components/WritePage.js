@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 import SubmitButton from '../components/SubmitButton';
 import InputField from '../components/InputField';
+import Message from '../components/Message';
 import TextareaField from '../components/TextareaField';
 
 class WritePage extends Component {
   render() {
-    const { onChange, onSubmit, isBusy } = this.props;
+    const { onChange, onSubmit, isBusy, hasError } = this.props;
 
     return (
       <form onSubmit={onSubmit}>
@@ -24,6 +25,7 @@ class WritePage extends Component {
           type='submit'>
           Submit
         </SubmitButton>
+        {hasError && <Message error/>}
       </form>
     );
   }
