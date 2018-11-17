@@ -6,7 +6,7 @@ import TextareaField from '../components/TextareaField';
 
 class WritePage extends Component {
   render() {
-    const { onChange, onSubmit } = this.props;
+    const { onChange, onSubmit, isBusy } = this.props;
 
     return (
       <form onSubmit={onSubmit}>
@@ -20,6 +20,7 @@ class WritePage extends Component {
           name='body'
           onChange={onChange} />
         <SubmitButton
+          disabled={isBusy}
           type='submit'>
           Submit
         </SubmitButton>

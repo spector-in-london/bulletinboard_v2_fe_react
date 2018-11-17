@@ -47,8 +47,13 @@ class WritePageContainer extends Component {
   }
 
   render() {
+    const { isBusy } = this.state;
+
     return (
-      <WritePage onChange={this.handleChange} onSubmit={this.handleSubmit} />
+      <WritePage
+        isBusy={isBusy}
+        onChange={this.handleChange}
+        onSubmit={this.handleSubmit} />
     );
   }
 }
