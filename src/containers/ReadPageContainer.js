@@ -40,10 +40,11 @@ class ReadPageContainer extends Component {
   }
 
   render() {
+    const { comments, hasError } = this.state;
     return (
       <ReadPage
-        comments={this.state.comments}
-        hasError={this.state.hasError} />
+        comments={comments}
+        hasError={hasError} />
     );
   }
 }
