@@ -10,6 +10,10 @@ const ContentWrapper = styled.div`
   @media (min-width: 1250px) {
     width: 1000px;
   }
+
+  @media (max-width: 450px) {
+    width: 90%;
+  }
 `;
 
 export default ContentWrapper;
