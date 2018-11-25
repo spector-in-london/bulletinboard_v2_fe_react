@@ -1,6 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.button`
+const ButtonWrapper = styled.button`
   display: block;
   width: 100%;
   border: none;
@@ -17,5 +18,14 @@ const Button = styled.button`
     background-color: #eee;
   }
 `;
+
+class Button extends React.Component {
+  render() {
+    return (
+      <ButtonWrapper
+        {...this.props} />
+    );
+  }
+}
 
 export default Button;
