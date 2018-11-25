@@ -11,6 +11,7 @@ const Textarea = styled.textarea`
 
   :focus {
     outline: 2px solid #ffbc05;
+    box-shadow: 0 0 0 3px rgba(255, 188, 5, 0.265);
   }
 `;
 
