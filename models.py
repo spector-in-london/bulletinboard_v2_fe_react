@@ -1,9 +1,11 @@
 from sqlalchemy import Table, Column, Integer, String
-from sqlalchemy.orm import mapper
-from database import metadata, db_session
+from database import Base
 
-class Test(object):
-    query - db_session.query_property()
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50), unique=True)
+    email = Column(String(120), unique=True)
 
     def __init__(self, name=None, email=None):
         self.name = name
@@ -11,11 +13,3 @@ class Test(object):
 
     def __repr__(self):
         return '<User %r>' % (self.name)
-
-users = Table('users', metadata,
-    Column('id', Integer, primary_key=True),
-    Column('name', String(50), unique=True),
-    Column('email', String(120), unique=True),
-)
-
-mapper(Test, users)
