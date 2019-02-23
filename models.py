@@ -1,15 +1,10 @@
 from sqlalchemy import Table, Column, Integer, String
 from database import Base
 
-class User(Base):
-    __tablename__ = 'users'
+class Post(Base):
+    __tablename__ = 'posts'
     id = Column(Integer, primary_key=True)
-    name = Column(String(50), unique=True)
-    email = Column(String(120), unique=True)
-
-    def __init__(self, name=None, email=None):
-        self.name = name
-        self.email = email
-
-    def __repr__(self):
-        return '<User %r>' % (self.name)
+    title = Column(String(100))
+    body = Column(String)
+    avatar = Column(String(30))
+    name = Column(String(30))
