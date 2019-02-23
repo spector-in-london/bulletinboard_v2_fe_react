@@ -2,7 +2,7 @@ import React from 'react';
 
 const Background = () => {
   return (
-    <svg style={{ position: 'absolute', bottom: 0, zIndex: -1 }} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 725'>
+    <svg style={{ position: 'fixed', bottom: 0, zIndex: -1 }} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 725'>
       <defs><clipPath id='a'><path d='M0 0h1920v725H0z'/></clipPath></defs>
       <g data-name='Web 1920 – 1' clipPath='url(#a)'>
         <path fill='#fff' d='M0 0h1920v725H0z'/>
