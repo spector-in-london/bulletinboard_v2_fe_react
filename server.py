@@ -18,15 +18,8 @@ def postComments():
 
 @app.route("/api/comments/", methods=["GET"])
 def getComments():
-
-    result = []
-    for instance in db_session.query(Post).limit(4):
-        temp = instance.__dict__
-        temp.pop('_sa_instance_state', None)
-        result.append(temp)
-
     data = {
-        "comments": result
+        "comments": Post.getComments()
     }
 
     return api_response(api_res_type["success"], data), 200
