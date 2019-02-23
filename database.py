@@ -1,8 +1,8 @@
-from sqlalchemy import create_engine,
+from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-db_string = 'postgres://localhost:5432:bulletinboard'
+db_string = 'postgres://localhost:5432/bulletinboard'
 engine = create_engine(db_string, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
