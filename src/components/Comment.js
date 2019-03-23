@@ -13,13 +13,13 @@ const CommentHeader = styled.div`
 `;
 
 const Comment = (props) => {
-  const { title, body, date } = props;
+  const { title, body, name } = props;
 
   return (
     <CommentWrapper>
       <CommentHeader>
         <div>{title}</div>
-        <div>{date}</div>
+        <div>{name}</div>
       </CommentHeader>
       <div>{body}</div>
     </CommentWrapper>
