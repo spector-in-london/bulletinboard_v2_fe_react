@@ -18,3 +18,13 @@ class Post(Base):
             result.append(temp)
 
         return result
+
+    @classmethod
+    def postComments(cls, comment):
+        comment["name"] = comment["title"]
+        comment["avatar"] = "bunny"
+
+        db_session.add(cls(**comment))
+        db_session.commit()
+
+        return None
