@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 const ButtonWrapper = styled.button`
@@ -23,26 +23,18 @@ const ButtonWrapper = styled.button`
   `}
 `;
 
-class Button extends React.Component {
-  state = {
-    focusWithKeyboard: false,
-  }
+const Button = (props) => {
+  const [canFocusWithKeyBoard, toggleCanFocus] = useState(false);
+  const toggleFocusStyle = ({ type }) => toggleCanFocus(type === 'keyup');
 
-  toggleInputMethod = ({ type }) => {
-    type === 'keyup'
-      ? this.setState({ focusWithKeyboard: true })
-      : this.setState({ focusWithKeyboard: false });
-  }
-
-  render() {
-    return (
-      <ButtonWrapper
-        {...this.props}
-        focusWithKeyboard={this.state.focusWithKeyboard}
-        onKeyUp={this.toggleInputMethod}
-        onMouseDown={this.toggleInputMethod} />
-    );
-  }
-}
+  return (
+    <ButtonWrapper
+      {...props}
+      focusWithKeyboard={canFocusWithKeyBoard}
+      onKeyUp={toggleFocusStyle}
+      onMouseDown={toggleFocusStyle}
+    />
+  );
+};
 
 export default Button;
