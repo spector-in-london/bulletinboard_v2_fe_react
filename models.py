@@ -24,7 +24,12 @@ class Post(Base):
         comment["name"] = comment["title"]
         comment["avatar"] = "bunny"
 
-        db_session.add(cls(**comment))
-        db_session.commit()
+        try:
+            db_session.add(cls(**comment))
+            db_session.commit()
 
-        return None
+            return None
+        except Exception as e:
+            print(e)
+
+            return "Error"
