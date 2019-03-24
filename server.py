@@ -14,9 +14,14 @@ def hello():
 @app.route("/api/comments/", methods=["POST"])
 def postComments():
     comment = request.get_json()
-    Post.postComments(comment);
+    error = Post.postComments(comment);
 
-    return api_response(api_res_type["success"]), 200
+    if error:
+        res_type = api_res_type["error"]
+    else:
+        res_type = api_res_type["success"]
+
+    return api_response(res_type), 200
 
 @app.route("/api/comments/", methods=["GET"])
 def getComments():
