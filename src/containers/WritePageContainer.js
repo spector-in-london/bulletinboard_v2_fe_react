@@ -50,7 +50,7 @@ class WritePageContainer extends Component {
       .then(res => res.json())
       .then(res => {
         if (res.status === 'success') {
-          this.setState({ isBusy: false }, this.props.history.push('/read'));
+          this.props.history.push('/read');
         } else {
           this.handleError(res.message);
         }
