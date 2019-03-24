@@ -26,7 +26,13 @@ class WritePageContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ isBusy: true }, this.postComment());
+    this.setState(
+      {
+        isBusy: true,
+        hasError: false,
+      },
+      this.postComment()
+    );
   }
 
   handleError = (error) => {
