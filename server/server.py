@@ -11,6 +11,14 @@ init_db()
 def hello():
     return "Hello Cruel World"
 
+@app.route("/api/comments/", methods=["GET"])
+def getComments():
+    data = {
+        "comments": Post.getComments()
+    }
+
+    return api_response(api_res_type["success"], data), 200
+
 @app.route("/api/comments/", methods=["POST"])
 def postComments():
     comment = request.get_json()
@@ -22,14 +30,6 @@ def postComments():
         res_type = api_res_type["success"]
 
     return api_response(res_type), 200
-
-@app.route("/api/comments/", methods=["GET"])
-def getComments():
-    data = {
-        "comments": Post.getComments()
-    }
-
-    return api_response(api_res_type["success"], data), 200
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
