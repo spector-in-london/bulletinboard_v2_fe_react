@@ -11,10 +11,12 @@ init_db()
 def hello():
     return "Hello Cruel World"
 
-@app.route("/api/comments/", methods=["GET"])
+@app.route("/api/comments", methods=["GET"])
 def getComments():
+    offset = request.args.get("offset")
+
     data = {
-        "comments": Post.getComments()
+        "comments": Post.getComments(4, offset)
     }
 
     return api_response(api_res_type["success"], data), 200
