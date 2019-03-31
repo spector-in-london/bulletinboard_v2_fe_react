@@ -22,7 +22,7 @@ def getComments():
 @app.route("/api/comments/", methods=["POST"])
 def postComments():
     comment = request.get_json()
-    error = Post.postComments(comment);
+    error = Post.postComments(comment)
 
     if error:
         res_type = api_res_type["error"]
