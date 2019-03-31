@@ -8,6 +8,7 @@ class ReadPageContainer extends Component {
     isFetching: false,
     hasError: false,
     offset: 0,
+    sort: 'desc',
   }
 
   componentDidMount() {
@@ -25,9 +26,9 @@ class ReadPageContainer extends Component {
   }
 
   fetchComments() {
-    const offset = this.state.offset;
+    const { offset, sort } = this.state;
 
-    fetch(`/api/comments?offset=${offset}`)
+    fetch(`/api/comments?offset=${offset}&sort=${sort}`)
       .then(res => res.json())
       .then(res => {
         if (res.status === 'success' && res.data) {
@@ -47,6 +48,16 @@ class ReadPageContainer extends Component {
       .catch(this.handleError);
   }
 
+  handleChangeSort = () => {
+    this.setState(prevState => {
+      return {
+        comments: [],
+        offset: 0,
+        sort: prevState.sort == 'desc' ? 'asc' : 'desc',
+      };
+    }, this.fetchComments);
+  }
+
   handleLoadMoreClick = () => {
     this.setState(prevState =>  ({ offset: prevState.offset + 1 }), this.fetchComments);
   }
@@ -57,6 +68,7 @@ class ReadPageContainer extends Component {
       <ReadPage
         comments={comments}
         hasError={hasError}
+        onChangeSort={this.handleChangeSort}
         onLoadMore={this.handleLoadMoreClick} />
     );
   }
