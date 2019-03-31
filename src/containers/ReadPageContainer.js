@@ -31,8 +31,13 @@ class ReadPageContainer extends Component {
       .then(res => res.json())
       .then(res => {
         if (res.status === 'success' && res.data) {
+          const comments = [
+            ...this.state.comments,
+            ...res.data.comments,
+          ];
+
           this.setState({
-            comments: res.data.comments,
+            comments,
             isFetching: false,
           });
         } else {
@@ -42,12 +47,17 @@ class ReadPageContainer extends Component {
       .catch(this.handleError);
   }
 
+  handleLoadMoreClick = () => {
+    this.setState(prevState =>  ({ offset: prevState.offset + 1 }), this.fetchComments);
+  }
+
   render() {
     const { comments, hasError } = this.state;
     return (
       <ReadPage
         comments={comments}
-        hasError={hasError} />
+        hasError={hasError}
+        onLoadMore={this.handleLoadMoreClick} />
     );
   }
 }
