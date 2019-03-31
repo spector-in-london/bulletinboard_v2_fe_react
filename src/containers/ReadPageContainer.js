@@ -7,6 +7,7 @@ class ReadPageContainer extends Component {
     comments: [],
     isFetching: false,
     hasError: false,
+    offset: 0,
   }
 
   componentDidMount() {
@@ -24,7 +25,9 @@ class ReadPageContainer extends Component {
   }
 
   fetchComments() {
-    fetch('/api/comments/')
+    const offset = this.state.offset;
+
+    fetch(`/api/comments?offset=${offset}`)
       .then(res => res.json())
       .then(res => {
         if (res.status === 'success' && res.data) {
