@@ -7,11 +7,13 @@ import SortButton from './SortButton';
 
 class ReadPage extends Component {
   render() {
-    const { comments, hasError, onChangeSort, onLoadMore } = this.props;
+    const { comments, hasError, onChangeSort, onLoadMore, sortOrder } = this.props;
 
     return (
       <>
-        <SortButton onClick={onChangeSort}>sort: newest first</SortButton>
+        <SortButton onClick={onChangeSort}>
+          {sortOrder == 'desc'? 'sort: newest first' : 'sort: oldest first'}
+        </SortButton>
         <Comments comments={comments} />
         <LoadMoreButton onClick={onLoadMore}>load more...</LoadMoreButton>
         {hasError && <Message error />}
