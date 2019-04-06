@@ -12,7 +12,7 @@ class ReadPage extends Component {
     return (
       <>
         <SortButton onClick={onChangeSort}>
-          {sortOrder == 'desc'? 'sort: newest first' : 'sort: oldest first'}
+          {sortOrder === 'desc'? 'sort: newest first' : 'sort: oldest first'}
         </SortButton>
         <Comments comments={comments} />
         <LoadMoreButton onClick={onLoadMore}>load more...</LoadMoreButton>
