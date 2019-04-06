@@ -10,9 +10,11 @@ class Post(Base):
     name = Column(String(30))
 
     @classmethod
-    def getComments(cls, limit=None, offset=None):
+    def getComments(cls, limit=None, offset=None, sort=None):
+        order_by = cls.id.desc() if sort == "desc" else cls.id.asc()
+
         result = []
-        for instance in db_session.query(cls).limit(limit).offset(offset):
+        for instance in db_session.query(cls).order_by(order_by).limit(limit).offset(offset):
             temp = instance.__dict__
             temp.pop('_sa_instance_state', None)
             result.append(temp)
