@@ -53,7 +53,7 @@ class ReadPageContainer extends Component {
       return {
         comments: [],
         offset: 0,
-        sort: prevState.sort == 'desc' ? 'asc' : 'desc',
+        sort: prevState.sort === 'desc' ? 'asc' : 'desc',
       };
     }, this.fetchComments);
   }
