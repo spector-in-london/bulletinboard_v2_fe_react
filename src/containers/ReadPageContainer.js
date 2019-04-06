@@ -63,13 +63,14 @@ class ReadPageContainer extends Component {
   }
 
   render() {
-    const { comments, hasError } = this.state;
+    const { comments, hasError, sort } = this.state;
     return (
       <ReadPage
         comments={comments}
         hasError={hasError}
         onChangeSort={this.handleChangeSort}
-        onLoadMore={this.handleLoadMoreClick} />
+        onLoadMore={this.handleLoadMoreClick}
+        sortOrder={sort}/>
     );
   }
 }
