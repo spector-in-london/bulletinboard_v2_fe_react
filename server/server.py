@@ -14,9 +14,10 @@ def hello():
 @app.route("/api/comments", methods=["GET"])
 def getComments():
     offset = request.args.get("offset")
+    offset = int(offset)
 
     data = {
-        "comments": Post.getComments(4, offset)
+        "comments": Post.getComments(4, offset * 4)
     }
 
     return api_response(api_res_type["success"], data), 200
