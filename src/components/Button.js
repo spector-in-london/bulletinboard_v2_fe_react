@@ -24,7 +24,7 @@ const ButtonWrapper = styled.button`
 `;
 
 const Button = (props) => {
-  const [canFocusWithKeyBoard, toggleCanFocus] = useState(false);
+  const [ canFocusWithKeyBoard, toggleCanFocus]  = useState(false);
   const toggleFocusStyle = ({ type }) => toggleCanFocus(type === 'keyup');
 
   return (
