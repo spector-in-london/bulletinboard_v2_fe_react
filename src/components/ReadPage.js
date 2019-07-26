@@ -5,6 +5,11 @@ import LoadMoreButton from './LoadMoreButton';
 import Message from './Message';
 import SortButton from './SortButton';
 
+const sortOrderType = {
+  descending: 'sort: newest first',
+  ascending: 'sort: oldest first',
+};
+
 class ReadPage extends Component {
   render() {
     const { comments, hasError, onChangeSort, onLoadMore, sortOrder } = this.props;
@@ -12,7 +17,7 @@ class ReadPage extends Component {
     return (
       <>
         <SortButton onClick={onChangeSort}>
-          {sortOrder === 'desc'? 'sort: newest first' : 'sort: oldest first'}
+          {sortOrder === 'desc'? sortOrderType.descending : sortOrderType.ascending}
         </SortButton>
         <Comments comments={comments} />
         <LoadMoreButton onClick={onLoadMore}>load more...</LoadMoreButton>
