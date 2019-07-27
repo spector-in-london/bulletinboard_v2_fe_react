@@ -12,7 +12,7 @@ class ReadPageContainer extends Component {
   }
 
   componentDidMount() {
-    this.setState({ isFetching: true }, this.fetchComments());
+    this.setState({ isFetching: true }, () => this.fetchComments());
   }
 
   handleError = (error) => {
@@ -25,27 +25,29 @@ class ReadPageContainer extends Component {
     );
   }
 
-  fetchComments() {
+  async fetchComments() {
     const { offset, sort } = this.state;
 
-    fetch(`/api/comments?offset=${offset}&sort=${sort}`)
-      .then(res => res.json())
-      .then(res => {
-        if (res.status === 'success' && res.data) {
-          const comments = [
-            ...this.state.comments,
-            ...res.data.comments,
-          ];
+    try {
+      const apiRes = await fetch(`/api/comments?offset=${offset}&sort=${sort}`);
+      const res = await apiRes.json();
 
-          this.setState({
-            comments,
-            isFetching: false,
-          });
-        } else {
-          this.handleError(res.message);
-        }
-      })
-      .catch(this.handleError);
+      if (res.status === 'success' && res.data) {
+        const comments = [
+          ...this.state.comments,
+          ...res.data.comments,
+        ];
+
+        this.setState({
+          comments,
+          isFetching: false,
+        });
+      } else {
+        throw new Error(res.message);
+      }
+    } catch (error) {
+      this.handleError(error);
+    }
   }
 
   handleChangeSort = () => {
