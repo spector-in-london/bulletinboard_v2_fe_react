@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import api from '../utils/api';
 
 import ReadPage from '../components/ReadPage';
 
@@ -11,9 +12,7 @@ const ReadPageContainer = () => {
     sort: 'desc',
   });
 
-  const handleError = (errorMessage) => {
-    console.error(errorMessage); // eslint-disable-line no-console
-
+  const handleError = () => {
     setState({
       ...state,
       isFetching: false,
@@ -21,24 +20,21 @@ const ReadPageContainer = () => {
     });
   };
 
-  const fetchComments = async () => {
-    try {
-      const apiRes = await fetch(`/api/comments?offset=${state.offset}&sort=${state.sort}`);
-      const res = await apiRes.json();
+  const handleSuccess = (data) => {
+    const comments = [...state.comments, ...data.comments];
+    setState({
+      ...state,
+      comments,
+      isFetching: false,
+    });
+  };
 
-      if (res.status === 'success' && res.data) {
-        const comments = [...state.comments, ...res.data.comments];
-        setState({
-          ...state,
-          comments,
-          isFetching: false,
-        });
-      } else {
-        throw new Error(res.message);
-      }
-    } catch (error) {
-      handleError(error);
-    }
+  const fetchComments = () => {
+    api.get({
+      url: `/api/comments?offset=${state.offset}&sort=${state.sort}`,
+      onError: handleError,
+      onSuccess: handleSuccess,
+    });
   };
 
   const handleLoadMoreClick = () => {
