@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import api from '../utils/api';
 
 import WritePage from '../components/WritePage';
 
@@ -30,31 +31,21 @@ const WritePageContainer = () => {
     postComment();
   };
 
-  const handleError = (errorMessage) => {
-    console.error(errorMessage); // eslint-disable-line no-console
+  const handleSuccess = () => {
+    setState({ ...state, isBusy: false });
+    this.props.history.push('/read');
+  };
+
+  const handleError = () => {
     setState({ ...state, hasError: true });
   };
 
-  const postComment = async () => {
-    const options = {
-      method: 'post',
-      body: JSON.stringify(state.comment),
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
-    };
-
-    try {
-      const apiRes = await fetch('/api/comments/', options);
-      const res = await apiRes.json();
-
-      if (res.status === 'success') {
-        setState({ ...state, isBusy: false });
-        this.props.history.push('/read');
-      } else {
-        throw new Error(res.message);
-      }
-    } catch (error) {
-      handleError(error);
-    }
+  const postComment = () => {
+    api.post({
+      body: state.comment,
+      onSuccess: handleSuccess,
+      onError: handleError,
+    });
   };
 
   const { isBusy, hasError } = state;
