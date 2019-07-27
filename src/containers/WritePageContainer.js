@@ -31,7 +31,7 @@ class WritePageContainer extends Component {
         isBusy: true,
         hasError: false,
       },
-      this.postComment()
+      () => this.postComment()
     );
   }
 
@@ -45,23 +45,25 @@ class WritePageContainer extends Component {
     );
   }
 
-  postComment() {
+  async postComment() {
     const options = {
       method: 'post',
       body: JSON.stringify(this.state.comment),
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
     };
 
-    fetch('/api/comments/', options)
-      .then(res => res.json())
-      .then(res => {
-        if (res.status === 'success') {
-          this.props.history.push('/read');
-        } else {
-          this.handleError(res.message);
-        }
-      })
-      .catch(this.handleError);
+    try {
+      const apiRes = await fetch('/api/comments/', options);
+      const res = apiRes.json();
+
+      if (res.status === 'success') {
+        this.props.history.push('/read');
+      } else {
+        throw new Error(res.message);
+      }
+    } catch (error) {
+      this.handleError(error);
+    }
   }
 
   render() {
