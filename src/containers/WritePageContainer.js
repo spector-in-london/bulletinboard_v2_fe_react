@@ -1,82 +1,71 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import WritePage from '../components/WritePage';
 
-class WritePageContainer extends Component {
-  state = {
+const WritePageContainer = () => {
+  const [state, setState] = useState({
     comment: {
       title: '',
       body: '',
     },
     isBusy: false,
     hasError: false,
-  }
+  });
 
-  handleChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
-
-    this.setState({
+    setState({
+      ...state,
       comment: {
-        ...this.state.comment,
+        ...state.comment,
         [name]: value,
       }
     });
-  }
+  };
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    this.setState(
-      {
-        isBusy: true,
-        hasError: false,
-      },
-      () => this.postComment()
-    );
-  }
+    setState({ ...state, isBusy: true });
+    postComment();
+  };
 
-  handleError = (error) => {
-    this.setState(
-      {
-        isBusy: false,
-        hasError: true,
-      },
-      console.error(error) // eslint-disable-line no-console
-    );
-  }
+  const handleError = (errorMessage) => {
+    console.error(errorMessage); // eslint-disable-line no-console
+    setState({ ...state, hasError: true });
+  };
 
-  async postComment() {
+  const postComment = async () => {
     const options = {
       method: 'post',
-      body: JSON.stringify(this.state.comment),
+      body: JSON.stringify(state.comment),
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
     };
 
     try {
       const apiRes = await fetch('/api/comments/', options);
-      const res = apiRes.json();
+      const res = await apiRes.json();
 
       if (res.status === 'success') {
+        setState({ ...state, isBusy: false });
         this.props.history.push('/read');
       } else {
         throw new Error(res.message);
       }
     } catch (error) {
-      this.handleError(error);
+      handleError(error);
     }
-  }
+  };
 
-  render() {
-    const { isBusy, hasError } = this.state;
+  const { isBusy, hasError } = state;
 
-    return (
-      <WritePage
-        hasError={hasError}
-        isBusy={isBusy}
-        onChange={this.handleChange}
-        onSubmit={this.handleSubmit} />
-    );
-  }
-}
+  return (
+    <WritePage
+      hasError={hasError}
+      isBusy={isBusy}
+      onChange={handleChange}
+      onSubmit={handleSubmit} />
+  );
+};
 
 export default withRouter(WritePageContainer);
