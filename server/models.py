@@ -23,7 +23,6 @@ class Post(Base):
 
     @classmethod
     def postComments(cls, comment):
-        comment["name"] = comment["title"]
         comment["avatar"] = "bunny"
 
         try:
