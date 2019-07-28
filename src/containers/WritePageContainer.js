@@ -8,6 +8,7 @@ const WritePageContainer = () => {
   const [state, setState] = useState({
     comment: {
       title: '',
+      name: '',
       body: '',
     },
     isBusy: false,
