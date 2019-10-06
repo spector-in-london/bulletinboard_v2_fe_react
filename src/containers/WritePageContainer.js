@@ -4,7 +4,7 @@ import api from '../utils/api';
 
 import WritePage from '../components/WritePage';
 
-const WritePageContainer = () => {
+const WritePageContainer = ({ history }) => {
   const [state, setState] = useState({
     comment: {
       title: '',
@@ -34,7 +34,7 @@ const WritePageContainer = () => {
 
   const handleSuccess = () => {
     setState({ ...state, isBusy: false });
-    this.props.history.push('/read');
+    history.push('/read');
   };
 
   const handleError = () => {
@@ -43,6 +43,7 @@ const WritePageContainer = () => {
 
   const postComment = () => {
     api.post({
+      url: '/api/comments',
       body: state.comment,
       onSuccess: handleSuccess,
       onError: handleError,
