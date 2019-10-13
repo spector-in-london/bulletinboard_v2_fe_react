@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-class App extends Component {
+class MainLayout extends Component {
   render() {
     const { children } = this.props;
 
@@ -42,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MainLayout;
