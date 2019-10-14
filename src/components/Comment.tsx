@@ -12,7 +12,13 @@ const CommentHeader = styled.div`
   font-weight: bold;
 `;
 
-const Comment = (props) => {
+export interface CommentProps {
+  id: string;
+  body: string;
+  name: string;
+  title: string;
+}
+const Comment: React.FC<CommentProps> = (props) => {
   const { title, body, name } = props;
 
   return (
