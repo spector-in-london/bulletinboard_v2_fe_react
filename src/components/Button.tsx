@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-const ButtonWrapper = styled.button`
+const ButtonWrapper = styled.button<ButtonProps>`
   display: block;
   width: 100%;
   border: none;
@@ -23,9 +23,13 @@ const ButtonWrapper = styled.button`
   `}
 `;
 
-const Button = (props) => {
+export interface ButtonProps {
+  focusWithKeyboard?: boolean;
+}
+
+const Button: React.FC<ButtonProps> = (props) => {
   const [ canFocusWithKeyBoard, toggleCanFocus]  = useState(false);
-  const toggleFocusStyle = ({ type }) => toggleCanFocus(type === 'keyup');
+  const toggleFocusStyle = ({ type }: { type: string }) => toggleCanFocus(type === 'keyup');
 
   return (
     <ButtonWrapper
