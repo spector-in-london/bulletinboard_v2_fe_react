@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import Background from '../components/Background';
@@ -16,30 +16,28 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-class MainLayout extends Component {
-  render() {
-    const { children } = this.props;
+const MainLayout = (props) => {
+  const { children } = props;
 
-    return (
-      <React.Fragment>
-        <ContentWrapper>
-          <Header>
-            <SiteTitle>bulletin board</SiteTitle>
-            <Navigation>
-              <Link to='/read'>read</Link>
-              <Link to='/write'>write</Link>
-            </Navigation>
-            <Decoration />
-          </Header>
-          <Main>
-            {children}
-          </Main>
-          <GlobalStyle />
-        </ContentWrapper>
-        <Background />
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <React.Fragment>
+      <ContentWrapper>
+        <Header>
+          <SiteTitle>bulletin board</SiteTitle>
+          <Navigation>
+            <Link to='/read'>read</Link>
+            <Link to='/write'>write</Link>
+          </Navigation>
+          <Decoration />
+        </Header>
+        <Main>
+          {children}
+        </Main>
+        <GlobalStyle />
+      </ContentWrapper>
+      <Background />
+    </React.Fragment>
+  );
+};
 
 export default MainLayout;
