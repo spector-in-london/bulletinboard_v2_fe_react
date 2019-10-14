@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Comment from './Comment';
+import Comment, { CommentProps } from './Comment';
 
 const NoCommentsMessage = styled.div`
   margin-bottom: 1em;
 `;
 
-const Comments = (props) => {
+interface CommentsProps {
+  comments: Array<CommentProps>;
+}
+
+const Comments: React.FC<CommentsProps> = (props) => {
   const { comments } = props;
 
   if (comments.length === 0) {
