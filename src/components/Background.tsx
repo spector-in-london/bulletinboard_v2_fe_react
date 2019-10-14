@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Background = () => {
+const Background: React.FC = () => {
   return (
     <svg style={{ position: 'fixed', bottom: 0, zIndex: -2 }} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 725'>
       <path fill='#fff' d='M0 0h1920v725H0z'/>
