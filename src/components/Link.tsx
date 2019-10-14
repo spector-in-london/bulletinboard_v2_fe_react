@@ -9,6 +9,7 @@ const Link = styled(RouterLink)`
 
   &:hover {
     color: #ffbc05;
+    text-shadow: 3px 3px white;
   }
 
   &:not(:last-child) {
