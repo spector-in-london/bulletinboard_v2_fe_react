@@ -11,7 +11,12 @@ const FormGroupLabel = styled.label`
   padding-left: 0.5em;
 `;
 
-const FormGroup = (props) => {
+interface FormGroupProps {
+  label: string;
+  children: React.ReactNode;
+}
+
+const FormGroup: React.FC<FormGroupProps> = (props) => {
   const { label, children } = props;
 
   return (
