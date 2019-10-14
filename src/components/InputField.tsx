@@ -14,14 +14,21 @@ const Input = styled.input`
   }
 `;
 
-const InputField = (props) => {
+interface InputFieldProps {
+  autofocus?: boolean;
+  label: string,
+  name: string;
+  onChange(event: React.ChangeEvent<HTMLInputElement>): void;
+}
+
+const InputField: React.FC<InputFieldProps> = (props) => {
   const { label, autofocus, onChange, name } = props;
 
   return (
     <FormGroup label={label}>
       <Input
         autoFocus={autofocus}
-        maxLength='50'
+        maxLength={50}
         name={name}
         onChange={onChange}
         placeholder='Max 50 characters'
