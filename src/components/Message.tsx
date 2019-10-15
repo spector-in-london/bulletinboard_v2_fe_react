@@ -8,7 +8,12 @@ const MessageWrapper = styled.div`
   background-color: #eee;
 `;
 
-const Message = (props) => {
+interface MessageProps {
+  // TODO: rename prop
+  error: boolean;
+}
+
+const Message: React.FC<MessageProps> = (props) => {
   const { error } = props;
 
   if (error) {
