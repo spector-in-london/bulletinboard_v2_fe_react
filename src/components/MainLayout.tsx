@@ -16,7 +16,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const MainLayout = (props) => {
+interface MainLayoutProps {
+  children: React.ReactNode;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = (props) => {
   const { children } = props;
 
   return (
