@@ -15,18 +15,25 @@ const Textarea = styled.textarea`
   }
 `;
 
-const TextareaField = (props) => {
+interface TextareaFieldProps {
+  label: string;
+  autofocus?: boolean;
+  onChange(event: React.ChangeEvent<HTMLTextAreaElement>): void;
+  name: string;
+}
+
+const TextareaField: React.FC<TextareaFieldProps> = (props) => {
   const { label, autofocus, onChange, name } = props;
 
   return (
     <FormGroup label={label}>
       <Textarea
         autoFocus={autofocus}
-        maxLength='255'
+        maxLength={255}
         name={name}
         onChange={onChange}
         placeholder='Max 255 characters'
-        rows='6' />
+        rows={6} />
     </FormGroup>
   );
 };
