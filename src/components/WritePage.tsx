@@ -5,7 +5,14 @@ import InputField from '../components/InputField';
 import Message from '../components/Message';
 import TextareaField from '../components/TextareaField';
 
-const WritePage = (props) => {
+interface WritePageProps {
+  hasError: boolean;
+  isBusy: boolean;
+  onChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void;
+  onSubmit(event: React.FormEvent<HTMLFormElement>): void;
+}
+
+const WritePage: React.FC<WritePageProps> = (props) => {
   const {
     hasError,
     isBusy,
