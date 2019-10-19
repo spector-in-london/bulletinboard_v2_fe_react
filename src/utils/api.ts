@@ -1,8 +1,19 @@
-const apiCall = async (props) => {
+interface ApiCallProps {
+  onError: Function;
+  onSuccess: Function;
+  url: string;
+  options?: Object;
+}
+
+interface ApiCallPostProps extends ApiCallProps {
+  body: Object;
+}
+
+const apiCall = async (props: ApiCallProps): Promise<void> => {
   const {
     onError,
     onSuccess,
-    options = null,
+    options,
     url,
   } = props;
 
@@ -21,11 +32,11 @@ const apiCall = async (props) => {
   }
 };
 
-const get = (props) => {
+const get = (props: ApiCallProps) => {
   apiCall(props);
 };
 
-const post = (props) => {
+const post = (props: ApiCallPostProps) => {
   const options = {
     method: 'post',
     body: JSON.stringify(props.body),
