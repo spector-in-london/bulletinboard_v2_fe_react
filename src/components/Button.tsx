@@ -25,6 +25,7 @@ const ButtonWrapper = styled.button<ButtonProps>`
 
 export interface ButtonProps {
   focusWithKeyboard?: boolean;
+  onClick?(): void;
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
