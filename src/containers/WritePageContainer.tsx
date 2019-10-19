@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import api from '../utils/api';
 
 import WritePage from '../components/WritePage';
 
-const WritePageContainer = ({ history }) => {
-  const [state, setState] = useState({
+interface WritePageContainerProps extends RouteComponentProps<any> {}
+
+interface WritePageContainerState {
+  comment: {
+    title: string;
+    name: string;
+    body: string;
+  };
+  isBusy: boolean;
+  hasError: boolean;
+}
+
+const WritePageContainer: React.FC<WritePageContainerProps> = ({ history }) => {
+  const [state, setState] = useState<WritePageContainerState>({
     comment: {
       title: '',
       name: '',
@@ -15,7 +27,7 @@ const WritePageContainer = ({ history }) => {
     hasError: false,
   });
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = event.target;
     setState({
       ...state,
@@ -26,7 +38,7 @@ const WritePageContainer = ({ history }) => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     setState({ ...state, isBusy: true });
     postComment();
