@@ -4,13 +4,22 @@ import Comments from './Comments';
 import LoadMoreButton from './LoadMoreButton';
 import Message from './Message';
 import SortButton from './SortButton';
+import { CommentProps } from './Comment';
 
 const sortOrderType = {
   descending: 'sort: newest first',
   ascending: 'sort: oldest first',
 };
 
-const ReadPage = (props) => {
+interface ReadpageProps {
+  comments: Array<CommentProps>;
+  hasError: boolean;
+  onChangeSort(): void;
+  onLoadMore(): void;
+  sortOrder: string;
+}
+
+const ReadPage: React.FC<ReadpageProps> = (props) => {
   const {
     comments,
     hasError,
