@@ -2,9 +2,17 @@ import React, { useState, useEffect } from 'react';
 import api from '../utils/api';
 
 import ReadPage from '../components/ReadPage';
+import { CommentProps } from '../components/Comment';
 
-const ReadPageContainer = () => {
-  const [state, setState] = useState({
+interface ReadPageContainerState {
+  comments: Array<CommentProps>;
+  isFetching: boolean;
+  hasError: boolean;
+  offset: number;
+  sort: string;
+}
+const ReadPageContainer: React.FC = () => {
+  const [state, setState] = useState<ReadPageContainerState>({
     comments: [],
     isFetching: false,
     hasError: false,
@@ -20,7 +28,7 @@ const ReadPageContainer = () => {
     });
   };
 
-  const handleSuccess = (data) => {
+  const handleSuccess = (data: { comments: Array<CommentProps> }) => {
     const comments = [...state.comments, ...data.comments];
     setState({
       ...state,
