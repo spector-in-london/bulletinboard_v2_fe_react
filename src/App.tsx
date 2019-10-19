@@ -5,7 +5,7 @@ import MainLayout from './components/MainLayout';
 import ReadPageContainer from './containers/ReadPageContainer';
 import WritePageContainer from './containers/WritePageContainer';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <BrowserRouter>
       <MainLayout>
