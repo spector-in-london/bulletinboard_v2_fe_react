@@ -16,7 +16,10 @@ const Comments: React.FC<CommentsProps> = (props) => {
 
   if (comments.length === 0) {
     return (
-      <NoCommentsMessage>Nothing yet, be the first!</NoCommentsMessage>
+      <NoCommentsMessage
+        data-test-id="no-comments-message">
+        Nothing yet, be the first!
+      </NoCommentsMessage>
     );
   }
 
