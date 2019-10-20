@@ -21,7 +21,7 @@ const WritePage: React.FC<WritePageProps> = (props) => {
   } = props;
 
   return (
-    <form onSubmit={onSubmit}>
+    <form data-test-id="write-page-form" onSubmit={onSubmit}>
       <InputField
         autofocus
         label='Your Name'
@@ -37,6 +37,7 @@ const WritePage: React.FC<WritePageProps> = (props) => {
         onChange={onChange} />
       <SubmitButton
         disabled={isBusy}
+        data-test-id="write-page-submit-button"
         type='submit'>
         Submit
       </SubmitButton>
