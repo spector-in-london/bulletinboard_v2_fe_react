@@ -24,7 +24,7 @@ const Comments: React.FC<CommentsProps> = (props) => {
   }
 
   return (
-    <div>
+    <div data-test-id="comments-component">
       {comments.map(comment =>
         <Comment key={comment.id} {...comment} />
       )}
