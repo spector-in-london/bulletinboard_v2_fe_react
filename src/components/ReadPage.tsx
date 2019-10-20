@@ -30,11 +30,11 @@ const ReadPage: React.FC<ReadpageProps> = (props) => {
 
   return (
     <>
-      <SortButton onClick={onChangeSort}>
+      <SortButton data-test-id="sort-button" onClick={onChangeSort}>
         {sortOrder === 'desc'? sortOrderType.descending : sortOrderType.ascending}
       </SortButton>
       <Comments comments={comments} />
-      <LoadMoreButton onClick={onLoadMore}>load more...</LoadMoreButton>
+      <LoadMoreButton data-test-id="load-more-button" onClick={onLoadMore}>load more...</LoadMoreButton>
       {hasError && <Message error />}
     </>
   );
