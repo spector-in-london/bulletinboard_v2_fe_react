@@ -18,7 +18,7 @@ const Message: React.FC<MessageProps> = (props) => {
 
   if (error) {
     return (
-      <MessageWrapper>
+      <MessageWrapper data-test-id="error-message">
         Potentially, things are broken. Yell at your screen and try again.
       </MessageWrapper>
     );
