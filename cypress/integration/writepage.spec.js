@@ -1,11 +1,12 @@
 import * as locators from '../locators/locators';
+import Routes from '../../src/constants/routes';
 
 context('post message', () => {
   before(() => {
     cy.server();
     cy.route('POST', '/api/comments', 'fixture:post-comment');
     cy.route('/api/comments?offset=0&sort=desc', 'fixture:post-comment');
-    cy.visit('/write');
+    cy.visit(Routes.WRITE);
   });
 
   it('should redirect to read page if message is posted', () => {
@@ -16,6 +17,6 @@ context('post message', () => {
     cy.get(locators.writePageSubmitButton)
       .click();
 
-    cy.location('pathname').should('eq', '/read');
+    cy.location('pathname').should('eq', Routes.READ);
   });
 });
