@@ -11,6 +11,7 @@ interface ReadPageContainerState {
   offset: number;
   sort: string;
 }
+
 const ReadPageContainer: React.FC = () => {
   const [state, setState] = useState<ReadPageContainerState>({
     comments: [],
