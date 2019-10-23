@@ -1,5 +1,6 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import Routes from '../constants/routes';
 
 import Background from '../components/Background';
 import ContentWrapper from '../components/ContentWrapper';
@@ -29,8 +30,8 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
         <Header>
           <SiteTitle>bulletin board</SiteTitle>
           <Navigation>
-            <Link to='/read'>read</Link>
-            <Link to='/write'>write</Link>
+            <Link to={Routes.READ}>read</Link>
+            <Link to={Routes.WRITE}>write</Link>
           </Navigation>
           <Decoration />
         </Header>
