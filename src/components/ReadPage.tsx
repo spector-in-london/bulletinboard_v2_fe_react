@@ -5,10 +5,11 @@ import LoadMoreButton from './LoadMoreButton';
 import Message from './Message';
 import SortButton from './SortButton';
 import { CommentProps } from './Comment';
+import { useContentCopy } from '../hooks';
 
 const sortOrderType = {
-  descending: 'sort: newest first',
-  ascending: 'sort: oldest first',
+  descending: 'sort.newestFirst',
+  ascending: 'sort.oldestFirst',
 };
 
 interface ReadpageProps {
@@ -31,7 +32,7 @@ const ReadPage: React.FC<ReadpageProps> = (props) => {
   return (
     <>
       <SortButton data-test-id="sort-button" onClick={onChangeSort}>
-        {sortOrder === 'desc'? sortOrderType.descending : sortOrderType.ascending}
+        {useContentCopy(sortOrder === 'desc' ? sortOrderType.descending : sortOrderType.ascending)}
       </SortButton>
       <Comments comments={comments} />
       <LoadMoreButton data-test-id="load-more-button" onClick={onLoadMore}>load more...</LoadMoreButton>
