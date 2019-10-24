@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useContentCopy } from '../hooks';
 
 import Comment, { CommentProps } from './Comment';
 
@@ -18,7 +19,7 @@ const Comments: React.FC<CommentsProps> = (props) => {
     return (
       <NoCommentsMessage
         data-test-id="no-comments-message">
-        Nothing yet, be the first!
+        {useContentCopy("comments.beFirst")}
       </NoCommentsMessage>
     );
   }
