@@ -56,7 +56,7 @@ const WritePageContainer: React.FC<WritePageContainerProps> = ({ history }) => {
 
   const postComment = () => {
     api.post({
-      url: '/api/comments',
+      url: Routes.API_POST_COMMENTS,
       body: state.comment,
       onSuccess: handleSuccess,
       onError: handleError,
