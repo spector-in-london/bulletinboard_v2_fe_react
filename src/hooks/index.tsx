@@ -13,6 +13,10 @@ const contentCopy: stateType = Object.freeze({
   "site.title": "bulletin board",
   "sort.newestFirst": "sort: newest first",
   "sort.oldestFirst": "sort: oldest first",
+  "writePageForm.label.name": "Your Name",
+  "writePageForm.label.title": "A Title for Your Comment",
+  "writePageForm.label.body": "Your Comment",
+  "writePageForm.submit": "Submit",
 });
 
 const ContentContext = createContext<stateType>(contentCopy);

@@ -4,6 +4,7 @@ import SubmitButton from '../components/SubmitButton';
 import InputField from '../components/InputField';
 import Message from '../components/Message';
 import TextareaField from '../components/TextareaField';
+import { useContentCopy } from '../hooks';
 
 interface WritePageProps {
   hasError: boolean;
@@ -24,22 +25,22 @@ const WritePage: React.FC<WritePageProps> = (props) => {
     <form data-test-id="write-page-form" onSubmit={onSubmit}>
       <InputField
         autofocus
-        label='Your Name'
+        label={useContentCopy("writePageForm.label.name")}
         name='name'
         onChange={onChange} />
       <InputField
-        label='A Title for Your Comment'
+        label={useContentCopy("writePageForm.label.title")}
         name='title'
         onChange={onChange} />
       <TextareaField
-        label='Your Comment'
+        label={useContentCopy("writePageForm.label.body")}
         name='body'
         onChange={onChange} />
       <SubmitButton
         disabled={isBusy}
         data-test-id="write-page-submit-button"
         type='submit'>
-        Submit
+        {useContentCopy("writePageForm.submit")}
       </SubmitButton>
       {hasError && <Message hasError/>}
     </form>
