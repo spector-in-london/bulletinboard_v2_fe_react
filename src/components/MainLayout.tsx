@@ -31,8 +31,8 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
         <Header>
           <SiteTitle>{useContentCopy("site.title")}</SiteTitle>
           <Navigation>
-            <Link to={Routes.READ}>read</Link>
-            <Link to={Routes.WRITE}>write</Link>
+            <Link to={Routes.READ}>{useContentCopy("site.navigation.read")}</Link>
+            <Link to={Routes.WRITE}>{useContentCopy("site.navigation.write")}</Link>
           </Navigation>
           <Decoration />
         </Header>
