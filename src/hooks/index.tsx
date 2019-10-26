@@ -17,6 +17,8 @@ const contentCopy: stateType = Object.freeze({
   "writePageForm.label.title": "A Title for Your Comment",
   "writePageForm.label.body": "Your Comment",
   "writePageForm.submit": "Submit",
+  "formfield.maxLength50": "Max 50 characters",
+  "formfield.maxLength255": "Max 255 characters",
 });
 
 const ContentContext = createContext<stateType>(contentCopy);

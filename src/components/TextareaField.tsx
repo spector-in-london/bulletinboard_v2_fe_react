@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import FormGroup from './FormGroup';
+import { useContentCopy } from '../hooks';
 
 const Textarea = styled.textarea`
   border: unset;
@@ -32,7 +33,7 @@ const TextareaField: React.FC<TextareaFieldProps> = (props) => {
         maxLength={255}
         name={name}
         onChange={onChange}
-        placeholder='Max 255 characters'
+        placeholder={useContentCopy("formfield.maxLength255")}
         rows={6} />
     </FormGroup>
   );

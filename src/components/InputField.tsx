@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import FormGroup from './FormGroup';
+import { useContentCopy } from '../hooks';
 
 const Input = styled.input`
   border: unset;
@@ -31,7 +32,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
         maxLength={50}
         name={name}
         onChange={onChange}
-        placeholder='Max 50 characters'
+        placeholder={useContentCopy("formfield.maxLength50")}
         type='text' />
     </FormGroup>
   );
