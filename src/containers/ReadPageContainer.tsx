@@ -4,6 +4,11 @@ import api from '../utils/api';
 import ReadPage from '../components/ReadPage';
 import { CommentProps } from '../components/Comment';
 
+export const sortOrder = {
+  ASCENDING: 'asc',
+  DESCENDING: 'desc',
+}
+
 interface ReadPageContainerState {
   comments: Array<CommentProps>;
   isFetching: boolean;
@@ -18,7 +23,7 @@ const ReadPageContainer: React.FC = () => {
     isFetching: false,
     hasError: false,
     offset: 0,
-    sort: 'desc',
+    sort: sortOrder.DESCENDING,
   });
 
   const handleError = () => {
@@ -55,7 +60,9 @@ const ReadPageContainer: React.FC = () => {
       ...state,
       comments: [],
       offset: 0,
-      sort: state.sort === 'desc' ? 'asc' : 'desc',
+      sort: state.sort === sortOrder.DESCENDING
+        ? sortOrder.ASCENDING
+        : sortOrder.DESCENDING,
     });
   };
 
