@@ -41,7 +41,7 @@ const WritePage: React.FC<WritePageProps> = (props) => {
         type='submit'>
         Submit
       </SubmitButton>
-      {hasError && <Message error/>}
+      {hasError && <Message hasError/>}
     </form>
   );
 };

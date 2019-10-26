@@ -9,14 +9,13 @@ const MessageWrapper = styled.div`
 `;
 
 interface MessageProps {
-  // TODO: rename prop
-  error: boolean;
+  hasError: boolean;
 }
 
 const Message: React.FC<MessageProps> = (props) => {
-  const { error } = props;
+  const { hasError } = props;
 
-  if (error) {
+  if (hasError) {
     return (
       <MessageWrapper data-test-id="error-message">
         Potentially, things are broken. Yell at your screen and try again.
