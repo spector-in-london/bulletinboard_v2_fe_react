@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import api from '../utils/api';
+import Routes from '../constants/routes';
 
 import WritePage from '../components/WritePage';
 
@@ -46,7 +47,7 @@ const WritePageContainer: React.FC<WritePageContainerProps> = ({ history }) => {
 
   const handleSuccess = () => {
     setState({ ...state, isBusy: false });
-    history.push('/read');
+    history.push(Routes.READ);
   };
 
   const handleError = () => {
