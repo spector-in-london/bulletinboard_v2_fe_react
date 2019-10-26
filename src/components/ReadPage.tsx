@@ -35,8 +35,10 @@ const ReadPage: React.FC<ReadpageProps> = (props) => {
         {useContentCopy(sortOrder === 'desc' ? sortOrderType.descending : sortOrderType.ascending)}
       </SortButton>
       <Comments comments={comments} />
-      <LoadMoreButton data-test-id="load-more-button" onClick={onLoadMore}>load more...</LoadMoreButton>
-      {hasError && <Message error />}
+      <LoadMoreButton data-test-id="load-more-button" onClick={onLoadMore}>
+        {useContentCopy("comments.loadMore")}
+      </LoadMoreButton>
+      {hasError && <Message hasError />}
     </>
   );
 };

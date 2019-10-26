@@ -6,6 +6,7 @@ interface stateType {
 
 const contentCopy: stateType = Object.freeze({
   "comments.beFirst": "Nothing yet, be the first!",
+  "comments.loadMore": "load more...",
   "sort.newestFirst": "sort: newest first",
   "sort.oldestFirst": "sort: oldest first",
 });
