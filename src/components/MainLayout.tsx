@@ -10,6 +10,7 @@ import Link from '../components/Link';
 import Main from '../components/Main';
 import Navigation from '../components/Navigation';
 import SiteTitle from '../components/SiteTitle';
+import { useContentCopy } from '../hooks';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -28,7 +29,7 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
     <React.Fragment>
       <ContentWrapper>
         <Header>
-          <SiteTitle>bulletin board</SiteTitle>
+          <SiteTitle>{useContentCopy("site.title")}</SiteTitle>
           <Navigation>
             <Link to={Routes.READ}>read</Link>
             <Link to={Routes.WRITE}>write</Link>
