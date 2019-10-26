@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { useContentCopy } from '../hooks';
 
 const MessageWrapper = styled.div`
   margin-top: 1em;
@@ -18,7 +19,7 @@ const Message: React.FC<MessageProps> = (props) => {
   if (hasError) {
     return (
       <MessageWrapper data-test-id="error-message">
-        Potentially, things are broken. Yell at your screen and try again.
+        {useContentCopy("message.broken")}
       </MessageWrapper>
     );
   }
