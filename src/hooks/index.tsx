@@ -26,5 +26,10 @@ const ContentContext = createContext<stateType>(contentCopy);
 export const useContentCopy = (messageId: string): string => {
   const copy = useContext(ContentContext);
 
-  return copy && copy[messageId] ? copy[messageId] : '';
+  if (copy && copy[messageId]) {
+    return copy[messageId];
+  }
+
+  console.warn(`useContentCopy: messageId: ${messageId} not found, falling back to raw message`);
+  return '';
 };
