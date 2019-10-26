@@ -3,6 +3,7 @@ import api from '../utils/api';
 
 import ReadPage from '../components/ReadPage';
 import { CommentProps } from '../components/Comment';
+import Routes, { formatRoute } from '../constants/routes';
 
 export const sortOrder = {
   ASCENDING: 'asc',
@@ -45,7 +46,7 @@ const ReadPageContainer: React.FC = () => {
 
   const fetchComments = () => {
     api.get({
-      url: `/api/comments?offset=${state.offset}&sort=${state.sort}`,
+      url: formatRoute(Routes.API_GET_COMMENTS, { offset: state.offset, sort: state.sort }),
       onError: handleError,
       onSuccess: handleSuccess,
     });
