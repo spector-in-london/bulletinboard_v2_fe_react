@@ -31,5 +31,5 @@ export const useContentCopy = (messageId: string): string => {
   }
 
   console.warn(`useContentCopy: messageId: ${messageId} not found, falling back to raw message`);
-  return '';
+  return messageId;
 };
