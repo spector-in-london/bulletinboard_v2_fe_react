@@ -1,10 +1,10 @@
 import React, { createContext, useContext } from "react";
 
-interface stateType {
+interface ContentCopyType {
   [key: string]: string;
 }
 
-const contentCopy: stateType = Object.freeze({
+const contentCopy: ContentCopyType = Object.freeze({
   "comments.beFirst": "Nothing yet, be the first!",
   "comments.loadMore": "load more...",
   "formfield.maxLength255": "Max 255 characters",
@@ -21,7 +21,7 @@ const contentCopy: stateType = Object.freeze({
   "writePageForm.submit": "Submit",
 });
 
-const ContentContext = createContext<stateType>(contentCopy);
+const ContentContext = createContext<ContentCopyType>(contentCopy);
 
 export const useContentCopy = (messageId: string): string => {
   const copy = useContext(ContentContext);
