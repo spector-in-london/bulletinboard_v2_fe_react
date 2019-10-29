@@ -1,21 +1,12 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import { renderHook } from '@testing-library/react-hooks'
 import { useContentCopy } from '../../hooks/useContentCopy';
 
-const Container = ({ id }: { id: string }) => (
-  <div>{useContentCopy(id)}</div>
-);
-
 it('should render a message when a correct id is passed', () => {
-  const { container } = render(<Container id="writePageForm.submit" />);
-  const div = container.firstChild as HTMLDivElement;
-
-  expect(div.textContent).toBe("Submit");
+  const { result } = renderHook(() => useContentCopy("writePageForm.submit"));
+  expect(result.current).toEqual("Submit");
 });
 
 it('should render the raw id when an incorrect id is passed', () => {
-  const { container } = render(<Container id="Not an id" />);
-  const div = container.firstChild as HTMLDivElement;
-
-  expect(div.textContent).toBe("Not an id");
+  const { result } = renderHook(() => useContentCopy("Not an id"));
+  expect(result.current).toEqual("Not an id");
 });
