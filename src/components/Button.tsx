@@ -29,7 +29,7 @@ export interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const [ canFocusWithKeyBoard, toggleCanFocus]  = useState(false);
+  const [ canFocusWithKeyBoard, toggleCanFocus] = useState(false);
   const toggleFocusStyle = ({ type }: { type: string }) => toggleCanFocus(type === 'keyup');
 
   return (
