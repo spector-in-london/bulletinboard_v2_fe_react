@@ -24,6 +24,7 @@ const ButtonWrapper = styled.button<ButtonProps>`
 `;
 
 export interface ButtonProps {
+  disabled?: boolean;
   focusWithKeyboard?: boolean;
   onClick?(): void;
 }
