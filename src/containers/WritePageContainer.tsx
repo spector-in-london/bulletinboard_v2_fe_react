@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import api from '../utils/api';
 import Routes from '../constants/routes';
@@ -14,6 +14,7 @@ interface WritePageContainerState {
     body: string;
   };
   isBusy: boolean;
+  isDirty: boolean;
   hasError: boolean;
 }
 
@@ -25,8 +26,20 @@ const WritePageContainer: React.FC<WritePageContainerProps> = ({ history }) => {
       body: '',
     },
     isBusy: false,
+    isDirty: false,
     hasError: false,
   });
+
+  useEffect(() => {
+    const isFormDirty = Object.values(state.comment).every(Boolean);
+
+    if (isFormDirty !== state.isDirty) {
+      setState({
+        ...state,
+        isDirty: !state.isDirty,
+      });
+    }
+  }, [state.comment]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = event.target;
@@ -63,12 +76,17 @@ const WritePageContainer: React.FC<WritePageContainerProps> = ({ history }) => {
     });
   };
 
-  const { isBusy, hasError } = state;
+  const {
+    isBusy,
+    isDirty,
+    hasError,
+  } = state;
 
   return (
     <WritePage
       hasError={hasError}
       isBusy={isBusy}
+      isDirty={isDirty}
       onChange={handleChange}
       onSubmit={handleSubmit} />
   );
