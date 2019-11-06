@@ -9,6 +9,7 @@ import { useContentCopy } from '../hooks';
 interface WritePageProps {
   hasError: boolean;
   isBusy: boolean;
+  isDirty: boolean;
   onChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void;
   onSubmit(event: React.FormEvent<HTMLFormElement>): void;
 }
@@ -17,6 +18,7 @@ const WritePage: React.FC<WritePageProps> = (props) => {
   const {
     hasError,
     isBusy,
+    isDirty,
     onChange,
     onSubmit,
   } = props;
@@ -37,7 +39,7 @@ const WritePage: React.FC<WritePageProps> = (props) => {
         name='body'
         onChange={onChange} />
       <SubmitButton
-        disabled={isBusy}
+        disabled={isBusy || !isDirty}
         data-test-id="write-page-submit-button"
         type='submit'>
         {useContentCopy("writePageForm.submit")}
