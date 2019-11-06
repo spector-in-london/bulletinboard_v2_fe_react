@@ -24,13 +24,21 @@ const ReadPage: React.FC<ReadpageProps> = (props) => {
     sortOrder
   } = props;
 
+  const hasComments = Boolean(comments.length);
+
   return (
     <>
-      <SortButton data-test-id="sort-button" onClick={onChangeSort}>
+      <SortButton
+        data-test-id="sort-button"
+        disabled={!hasComments}
+        onClick={onChangeSort}>
         {useContentCopy(sortOrder === 'desc' ? 'sort.newestFirst' : 'sort.newestFirst')}
       </SortButton>
       <Comments comments={comments} />
-      <LoadMoreButton data-test-id="load-more-button" onClick={onLoadMore}>
+      <LoadMoreButton
+        disabled={!hasComments}
+        data-test-id="load-more-button"
+        onClick={onLoadMore}>
         {useContentCopy("comments.loadMore")}
       </LoadMoreButton>
       {hasError && <Message hasError />}
