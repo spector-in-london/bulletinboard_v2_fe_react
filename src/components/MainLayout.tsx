@@ -11,6 +11,7 @@ import Main from '../components/Main';
 import Navigation from '../components/Navigation';
 import SiteTitle from '../components/SiteTitle';
 import { useContentCopy } from '../hooks';
+import theme from '../styles/theme';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -21,12 +22,6 @@ const GlobalStyle = createGlobalStyle`
 interface MainLayoutProps {
   children: React.ReactNode;
 }
-
-const theme = {
-  color: {
-    black: "black",
-  },
-};
 
 const MainLayout: React.FC<MainLayoutProps> = (props) => {
   const { children } = props;
