@@ -9,6 +9,10 @@ const typography = {
 const theme = {
   color: {
     black: 'black',
+    white: 'white',
+    grey: '#eee',
+    primary: '#ffbc05',
+    primaryTransparant: 'rgba(255, 188, 5, 0.265)',
   },
   typography,
   spacing,
