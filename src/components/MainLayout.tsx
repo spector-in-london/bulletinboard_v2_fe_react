@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Routes from '../constants/routes';
 
 import Background from '../components/Background';
@@ -22,27 +22,35 @@ interface MainLayoutProps {
   children: React.ReactNode;
 }
 
+const theme = {
+  color: {
+    black: "black",
+  },
+};
+
 const MainLayout: React.FC<MainLayoutProps> = (props) => {
   const { children } = props;
 
   return (
-    <React.Fragment>
-      <ContentWrapper>
-        <Header>
-          <SiteTitle>{useContentCopy("site.title")}</SiteTitle>
-          <Navigation>
-            <Link to={Routes.READ}>{useContentCopy("site.navigation.read")}</Link>
-            <Link to={Routes.WRITE}>{useContentCopy("site.navigation.write")}</Link>
-          </Navigation>
-          <Decoration />
-        </Header>
-        <Main>
-          {children}
-        </Main>
-        <GlobalStyle />
-      </ContentWrapper>
-      <Background />
-    </React.Fragment>
+    <ThemeProvider theme={theme}>
+      <>
+        <ContentWrapper>
+          <Header>
+            <SiteTitle>{useContentCopy("site.title")}</SiteTitle>
+            <Navigation>
+              <Link to={Routes.READ}>{useContentCopy("site.navigation.read")}</Link>
+              <Link to={Routes.WRITE}>{useContentCopy("site.navigation.write")}</Link>
+            </Navigation>
+            <Decoration />
+          </Header>
+          <Main>
+            {children}
+          </Main>
+          <GlobalStyle />
+        </ContentWrapper>
+        <Background />
+      </>
+    </ThemeProvider>
   );
 };
 
