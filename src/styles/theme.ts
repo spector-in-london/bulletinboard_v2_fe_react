@@ -6,16 +6,18 @@ const typography = {
   fontFamily: `'Oxygen', 'Helvetica Neue', sans-serif`,
 }
 
+const color = {
+  black: 'black',
+  white: 'white',
+  grey: '#eee',
+  primary: '#ffbc05',
+  primaryTransparant: 'rgba(255, 188, 5, 0.265)',
+};
+
 const theme = {
-  color: {
-    black: 'black',
-    white: 'white',
-    grey: '#eee',
-    primary: '#ffbc05',
-    primaryTransparant: 'rgba(255, 188, 5, 0.265)',
-  },
-  typography,
+  color,
   spacing,
+  typography,
 };
 
 export default theme;
