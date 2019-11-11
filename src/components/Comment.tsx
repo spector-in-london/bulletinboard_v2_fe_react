@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CommentWrapper = styled.div`
-  margin-bottom: 1em;
+  margin-bottom: ${({ theme }) => theme.spacing(4)};
 `;
 
 const CommentHeader = styled.div`
-  border-bottom: 1px solid #ffbc05;
+  border-bottom: 1px solid ${({ theme }) => theme.color.primary};
   display: flex;
   justify-content: space-between;
   font-weight: bold;
