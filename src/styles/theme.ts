@@ -3,7 +3,8 @@ const spacing = (number: number): string => {
 };
 
 const typography = {
-  fontFamily: `'Oxygen', 'Helvetica Neue', sans-serif`,
+  fontPrimary: `'Oxygen', 'Helvetica Neue', sans-serif`,
+  fontSecondary: 'Pattaya, serif',
 }
 
 const color = {
