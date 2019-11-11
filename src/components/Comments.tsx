@@ -5,7 +5,7 @@ import { useContentCopy } from '../hooks';
 import Comment, { CommentProps } from './Comment';
 
 const NoCommentsMessage = styled.div`
-  margin-bottom: 1em;
+  margin-bottom: ${({ theme }) => theme.spacing(4)};
 `;
 
 interface CommentsProps {
