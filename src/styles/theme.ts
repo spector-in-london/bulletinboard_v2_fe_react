@@ -9,10 +9,11 @@ const typography = {
 
 const color = {
   black: 'black',
-  white: 'white',
   grey: '#eee',
+  lightGrey: '#fafafa',
   primary: '#ffbc05',
-  primaryTransparant: 'rgba(255, 188, 5, 0.265)',
+  primaryTransparent: 'rgba(255, 188, 5, 0.265)',
+  white: 'white',
 };
 
 const theme = {
