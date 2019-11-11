@@ -5,20 +5,20 @@ const ButtonWrapper = styled.button<ButtonProps>`
   display: block;
   width: 100%;
   border: none;
-  padding: 0.5em;
-  background-color: rgba(255, 188, 5, 0.265);
+  padding: ${({ theme }) => theme.spacing(2)};
+  background-color: ${({ theme }) => theme.color.primaryTransparent};
   outline: none;
 
   :disabled {
     cursor: not-allowed;
-    background-color: #eee;
+    background-color: ${({ theme }) => theme.color.grey};
   }
 
   ${props => props.focusWithKeyboard && css`
     :focus {
       outline: none;
-      background-color: #ffbc05;
-      box-shadow: 0 0 0 3px rgba(255, 188, 5, 0.265);
+      background-color: ${({ theme }) => theme.color.primary};
+      box-shadow: 0 0 0 3px ${({ theme }) => theme.color.primaryTransparent};
     }
   `}
 `;
