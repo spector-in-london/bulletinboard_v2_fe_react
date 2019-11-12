@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Header = styled.header`
-  margin-top: 4em;
+  margin-top: ${({ theme }) => theme.spacing(16)};
   text-align: right;
 `;
 
