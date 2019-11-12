@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { useContentCopy } from '../hooks';
 
 const MessageWrapper = styled.div`
-  margin-top: 1em;
-  padding: 0.5em;
-  background-color: #eee;
+  margin-top: ${({ theme }) => theme.spacing(4)};
+  padding: ${({ theme }) => theme.spacing(2)};
+  background-color: ${({ theme }) => theme.grey};
 `;
 
 interface MessageProps {
