@@ -8,17 +8,17 @@ const Link = styled(RouterLink)`
   position: relative;
 
   &:hover {
-    color: #ffbc05;
-    text-shadow: 3px 3px white;
+    color: ${({ theme }) => theme.color.primary};
+    text-shadow: 3px 3px ${({ theme }) => theme.color.white};
   }
 
   &:not(:last-child) {
-    margin-right: 8px;
+    margin-right: ${({ theme }) => theme.spacing(2)};
   }
 
   :focus {
     outline: none;
-    border-bottom: 2px solid #ffbc05;
+    border-bottom: 2px solid ${({ theme }) => theme.color.primary};
 
     &:before {
       content: '';
