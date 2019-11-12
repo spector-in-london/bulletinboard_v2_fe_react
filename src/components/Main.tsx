@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const Main = styled.main`
-  background-color: #fafafa;
-  padding: 1em 2.5em;
+  background-color: ${({ theme }) => theme.color.lightGrey};
+  padding: ${({ theme }) => theme.spacing(4)} ${({ theme }) => theme.spacing(10)};
   flex: auto;
 
   @media (max-width: 450px) {
