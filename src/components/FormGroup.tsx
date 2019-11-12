@@ -4,11 +4,11 @@ import styled from 'styled-components';
 const FormGroupWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1em;
+  margin-bottom: ${({ theme }) => theme.spacing(4)};
 `;
 
 const FormGroupLabel = styled.label`
-  padding-left: 0.5em;
+  padding-left: ${({ theme }) => theme.spacing(2)};
 `;
 
 interface FormGroupProps {
