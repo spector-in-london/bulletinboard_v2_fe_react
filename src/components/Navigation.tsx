@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const Navigation = styled.nav`
-  font-size: 2.5em;
-  margin-bottom: 1rem;
+  font-size: ${({ theme }) => theme.spacing(10)};
+  margin-bottom: ${({ theme }) => theme.spacing(4)};
 
   @media (max-width: 450px) {
-    font-size: 1.5em;
+    font-size: ${({ theme }) => theme.spacing(6)};
   }
 `;
 
