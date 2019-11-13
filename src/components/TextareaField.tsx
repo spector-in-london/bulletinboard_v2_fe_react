@@ -6,13 +6,13 @@ import { useContentCopy } from '../hooks';
 
 const Textarea = styled.textarea`
   border: unset;
-  border-bottom: 1px solid black;
-  padding: 0.5em;
+  border-bottom: 1px solid ${({ theme }) => theme.color.black};
+  padding: ${({ theme }) => theme.spacing(2)};
   resize: none;
 
   :focus {
     outline: 2px solid #ffbc05;
-    box-shadow: 0 0 0 3px rgba(255, 188, 5, 0.265);
+    box-shadow: 0 0 0 3px ${({ theme }) => theme.color.primaryTransparent};
   }
 `;
 
