@@ -1,8 +1,9 @@
 import React from 'react';
 
+import Button from './Button';
 import Comments from './Comments';
-import LoadMoreButton from './LoadMoreButton';
 import Message from './Message';
+
 import SortButton from './SortButton';
 import { CommentProps } from './Comment';
 import { useContentCopy } from '../hooks';
@@ -35,12 +36,12 @@ const ReadPage: React.FC<ReadpageProps> = (props) => {
         {useContentCopy(sortOrder === 'desc' ? 'sort.newestFirst' : 'sort.newestFirst')}
       </SortButton>
       <Comments comments={comments} />
-      <LoadMoreButton
+      <Button
         disabled={!hasComments}
         data-test-id="load-more-button"
         onClick={onLoadMore}>
         {useContentCopy("comments.loadMore")}
-      </LoadMoreButton>
+      </Button>
       {hasError && <Message hasError />}
     </>
   );
