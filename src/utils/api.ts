@@ -1,15 +1,15 @@
-interface ApiCallProps {
-  onError: Function;
-  onSuccess: Function;
+interface ApiCallProps<T> {
+  onError(): void;
+  onSuccess(responseData: T): void;
   url: string;
   options?: Object;
 }
 
-interface ApiCallPostProps extends ApiCallProps {
+interface ApiCallPostProps<T> extends ApiCallProps<T> {
   body: Object;
 }
 
-const apiCall = async (props: ApiCallProps): Promise<void> => {
+const apiCall = async <T>(props: ApiCallProps<T>): Promise<void> => {
   const {
     onError,
     onSuccess,
@@ -32,11 +32,11 @@ const apiCall = async (props: ApiCallProps): Promise<void> => {
   }
 };
 
-const get = (props: ApiCallProps) => {
+const get = <T>(props: ApiCallProps<T>) => {
   apiCall(props);
 };
 
-const post = (props: ApiCallPostProps) => {
+const post = <T>(props: ApiCallPostProps<T>) => {
   const options = {
     method: 'post',
     body: JSON.stringify(props.body),
