@@ -36,7 +36,11 @@ const ReadPageContainer: React.FC = () => {
   };
 
   const handleSuccess = (data: { comments: CommentProps[] }) => {
-    const comments = [...state.comments, ...data.comments];
+    const comments = [
+      ...state.comments,
+      ...data.comments
+    ];
+
     setState({
       ...state,
       comments,
@@ -53,7 +57,10 @@ const ReadPageContainer: React.FC = () => {
   };
 
   const handleLoadMoreClick = () => {
-    setState({ ...state, offset: state.offset + 1 });
+    setState({
+      ...state,
+      offset: state.offset + 1
+    });
   };
 
   const handleChangeSort = () => {
@@ -68,14 +75,21 @@ const ReadPageContainer: React.FC = () => {
   };
 
   useEffect(() => {
-    setState({ ...state, isFetching: true });
+    setState({
+      ...state,
+      isFetching: true
+    });
   }, [state.offset, state.sort]);
 
   useEffect(() => {
     if (state.isFetching) fetchComments();
   }, [state.isFetching]);
 
-  const { comments, hasError, sort } = state;
+  const {
+    comments,
+    hasError,
+    sort
+  } = state;
 
   return (
     <ReadPage
