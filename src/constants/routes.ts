@@ -8,7 +8,7 @@ export const formatRoute = (route: string, params: { [key: string]: string | num
   return formatted;
 };
 
-const Routes: { [key: string]: string } = {
+const Routes = {
   HOME: '/',
   READ: '/read',
   WRITE: '/write',
