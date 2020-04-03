@@ -1,7 +1,6 @@
 {
   "commentsComponent": "[data-test-id='comments-component']",
   "errorMessage": "[data-test-id='error-message']",
-  "loadMoreButton": "[data-test-id='load-more-button']",
   "noCommentsMessage": "[data-test-id='no-comments-message']",
   "sortButton": "[data-test-id='sort-button']",
   "writePageForm": "[data-test-id='write-page-form']",
