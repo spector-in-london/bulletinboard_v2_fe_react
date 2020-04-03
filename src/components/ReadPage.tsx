@@ -9,7 +9,7 @@ import { CommentProps } from './Comment';
 import { useContentCopy } from '../hooks';
 
 interface ReadpageProps {
-  comments: Array<CommentProps>;
+  comments: CommentProps[];
   hasError: boolean;
   onChangeSort(): void;
   onLoadMore(): void;
