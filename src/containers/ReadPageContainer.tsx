@@ -11,7 +11,7 @@ export const sortOrder = {
 }
 
 interface ReadPageContainerState {
-  comments: Array<CommentProps>;
+  comments: CommentProps[];
   isFetching: boolean;
   hasError: boolean;
   offset: number;
@@ -35,7 +35,7 @@ const ReadPageContainer: React.FC = () => {
     });
   };
 
-  const handleSuccess = (data: { comments: Array<CommentProps> }) => {
+  const handleSuccess = (data: { comments: CommentProps[] }) => {
     const comments = [...state.comments, ...data.comments];
     setState({
       ...state,
