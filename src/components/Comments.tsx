@@ -9,7 +9,7 @@ const NoCommentsMessage = styled.div`
 `;
 
 interface CommentsProps {
-  comments: Array<CommentProps>;
+  comments: CommentProps[];
 }
 
 const Comments: React.FC<CommentsProps> = (props) => {
