@@ -7,6 +7,7 @@ import Message from './Message';
 import SortButton from './SortButton';
 import { CommentProps } from './Comment';
 import { useContentCopy } from '../hooks';
+import { SortOrder } from '../containers/ReadPageContainer';
 
 interface ReadpageProps {
   comments: CommentProps[];
@@ -33,7 +34,7 @@ const ReadPage: React.FC<ReadpageProps> = (props) => {
         data-test-id="sort-button"
         disabled={!hasComments}
         onClick={onChangeSort}>
-        {useContentCopy(sortOrder === 'desc' ? 'sort.newestFirst' : 'sort.newestFirst')}
+        {useContentCopy(sortOrder === SortOrder.DESCENDING ? 'sort.newestFirst' : 'sort.newestFirst')}
       </SortButton>
       <Comments comments={comments} />
       <Button

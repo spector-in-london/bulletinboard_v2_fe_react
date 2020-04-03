@@ -5,9 +5,9 @@ import ReadPage from '../components/ReadPage';
 import { CommentProps } from '../components/Comment';
 import Routes, { formatRoute } from '../constants/routes';
 
-export const sortOrder = {
-  ASCENDING: 'asc',
-  DESCENDING: 'desc',
+export enum SortOrder {
+  ASCENDING = 'asc',
+  DESCENDING = 'desc',
 }
 
 interface ReadPageContainerState {
@@ -24,7 +24,7 @@ const ReadPageContainer: React.FC = () => {
     isFetching: false,
     hasError: false,
     offset: 0,
-    sort: sortOrder.DESCENDING,
+    sort: SortOrder.DESCENDING,
   });
 
   const handleError = () => {
@@ -61,9 +61,9 @@ const ReadPageContainer: React.FC = () => {
       ...state,
       comments: [],
       offset: 0,
-      sort: state.sort === sortOrder.DESCENDING
-        ? sortOrder.ASCENDING
-        : sortOrder.DESCENDING,
+      sort: state.sort === SortOrder.DESCENDING
+        ? SortOrder.ASCENDING
+        : SortOrder.DESCENDING,
     });
   };
 
