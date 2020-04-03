@@ -43,6 +43,7 @@ const WritePageContainer: React.FC<WritePageContainerProps> = ({ history }) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = event.target;
+
     setState({
       ...state,
       comment: {
@@ -54,17 +55,29 @@ const WritePageContainer: React.FC<WritePageContainerProps> = ({ history }) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    setState({ ...state, isBusy: true });
+
+    setState({
+      ...state,
+      isBusy: true
+    });
+
     postComment();
   };
 
   const handleSuccess = () => {
-    setState({ ...state, isBusy: false });
+    setState({
+      ...state,
+      isBusy: false
+    });
+
     history.push(Routes.READ);
   };
 
   const handleError = () => {
-    setState({ ...state, hasError: true });
+    setState({
+      ...state,
+      hasError: true
+    });
   };
 
   const postComment = () => {
