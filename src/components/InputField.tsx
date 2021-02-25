@@ -32,7 +32,7 @@ const InputField: React.FC<InputFieldProps> = (props) => {
         maxLength={50}
         name={name}
         onChange={onChange}
-        placeholder={useContentCopy("formfield.maxLength50")}
+        placeholder={useContentCopy('formfield.maxLength50')}
         type='text' />
     </FormGroup>
   );
