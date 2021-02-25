@@ -18,14 +18,14 @@ const Comments: React.FC<CommentsProps> = (props) => {
   if (comments.length === 0) {
     return (
       <NoCommentsMessage
-        data-test-id="no-comments-message">
-        {useContentCopy("comments.beFirst")}
+        data-test-id='no-comments-message'>
+        {useContentCopy('comments.beFirst')}
       </NoCommentsMessage>
     );
   }
 
   return (
-    <div data-test-id="comments-component">
+    <div data-test-id='comments-component'>
       {comments.map(comment =>
         <Comment key={comment.id} {...comment} />
       )}
