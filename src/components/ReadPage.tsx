@@ -31,7 +31,7 @@ const ReadPage: React.FC<ReadpageProps> = (props) => {
   return (
     <>
       <SortButton
-        data-test-id="sort-button"
+        data-test-id='sort-button'
         disabled={!hasComments}
         onClick={onChangeSort}>
         {useContentCopy(sortOrder === SortOrder.DESCENDING ? 'sort.newestFirst' : 'sort.newestFirst')}
@@ -39,9 +39,9 @@ const ReadPage: React.FC<ReadpageProps> = (props) => {
       <Comments comments={comments} />
       <Button
         disabled={!hasComments}
-        data-test-id="load-more-button"
+        data-test-id='load-more-button'
         onClick={onLoadMore}>
-        {useContentCopy("comments.loadMore")}
+        {useContentCopy('comments.loadMore')}
       </Button>
       {hasError && <Message hasError />}
     </>
