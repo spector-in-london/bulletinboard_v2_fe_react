@@ -24,25 +24,25 @@ const WritePage: React.FC<WritePageProps> = (props) => {
   } = props;
 
   return (
-    <form data-test-id="write-page-form" onSubmit={onSubmit}>
+    <form data-test-id='write-page-form' onSubmit={onSubmit}>
       <InputField
         autofocus
-        label={useContentCopy("writePageForm.label.name")}
+        label={useContentCopy('writePageForm.label.name')}
         name='name'
         onChange={onChange} />
       <InputField
-        label={useContentCopy("writePageForm.label.title")}
+        label={useContentCopy('writePageForm.label.title')}
         name='title'
         onChange={onChange} />
       <TextareaField
-        label={useContentCopy("writePageForm.label.body")}
+        label={useContentCopy('writePageForm.label.body')}
         name='body'
         onChange={onChange} />
       <SubmitButton
         disabled={isBusy || !isDirty}
-        data-test-id="write-page-submit-button"
+        data-test-id='write-page-submit-button'
         type='submit'>
-        {useContentCopy("writePageForm.submit")}
+        {useContentCopy('writePageForm.submit')}
       </SubmitButton>
       {hasError && <Message hasError/>}
     </form>
