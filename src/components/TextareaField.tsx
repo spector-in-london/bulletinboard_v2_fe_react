@@ -33,7 +33,7 @@ const TextareaField: React.FC<TextareaFieldProps> = (props) => {
         maxLength={255}
         name={name}
         onChange={onChange}
-        placeholder={useContentCopy("formfield.maxLength255")}
+        placeholder={useContentCopy('formfield.maxLength255')}
         rows={6} />
     </FormGroup>
   );
