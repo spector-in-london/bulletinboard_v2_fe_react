@@ -18,8 +18,8 @@ const Message: React.FC<MessageProps> = (props) => {
 
   if (hasError) {
     return (
-      <MessageWrapper data-test-id="error-message">
-        {useContentCopy("message.broken")}
+      <MessageWrapper data-test-id='error-message'>
+        {useContentCopy('message.broken')}
       </MessageWrapper>
     );
   }
